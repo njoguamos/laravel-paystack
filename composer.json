@@ -1,0 +1,59 @@
+{
+    "name": "njoguamos/paystack",
+    "description": "A Laravel package for Paystack payment integration",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Njogu Amos",
+            "email": "mail@njoguamos.me.ke"
+        }
+    ],
+    "require": {
+        "php": "^8.2 | ^8.3 | ^8.4",
+        "illuminate/support": "^11.0 | ^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22",
+        "orchestra/testbench": "^9.0 | ^10.0",
+        "pestphp/pest": "^v3.8",
+        "pestphp/pest-plugin-laravel": "^v3.2",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NjoguAmos\\Paystack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NjoguAmos\\Paystack\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NjoguAmos\\Paystack\\PaystackServiceProvider"
+            ],
+            "aliases": {
+                "Paystack": "NjoguAmos\\Paystack\\Facades\\Paystack"
+            }
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse" : "./vendor/bin/phpstan analyse --memory-limit=2G",
+        "rector": "./vendor/bin/rector process --ansi"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

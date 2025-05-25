@@ -1,0 +1,62 @@
+# Laravel Paystack
+
+> [!WARNING]
+> This package is still in development and it is not ready for production.
+
+A Laravel package for integrating with Paystack payment gateway.
+
+## Installation
+
+You can install the package via composer:
+
+```bash
+composer require njoguamos/paystack
+```
+
+## Configuration
+
+Publish the configuration file:
+
+```bash
+php artisan vendor:publish --tag="paystack-config"
+```
+
+This will publish a `paystack.php` configuration file to your config directory.
+
+Add your Paystack API keys to your `.env` file:
+
+```
+PAYSTACK_PUBLIC_KEY=your-public-key
+PAYSTACK_SECRET_KEY=your-secret-key
+```
+
+## Usage
+
+You can find the documentation at [Documentation Site](https://njoguamos.me.ke/laravel-paystack)
+
+## Testing
+
+```bash
+composer test
+```
+
+## Changelog
+
+Please see [TODO]() for more information on what has changed recently.
+
+## Contributing
+
+Please see [TODO]() for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Njogu Amos](https://github.com/njoguamos)
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
