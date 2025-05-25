@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'public_key' => env('PAYSTACK_PUBLIC_KEY', ''),
-    'secret_key' => env('PAYSTACK_SECRET_KEY', ''),
+    'public_key' => env(key: 'PAYSTACK_PUBLIC_KEY'),
+    'secret_key' => env(key: 'PAYSTACK_SECRET_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'url' => env('PAYSTACK_URL', 'https://api.paystack.co'),
+    'base_url' => env(key: 'PAYSTACK_URL', default: 'https://api.paystack.co'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,5 +37,5 @@ return [
     |
     */
 
-    'webhook_url' => env('PAYSTACK_WEBHOOK_URL', '/paystack/webhook'),
+    'webhook_url' => env(key: 'PAYSTACK_WEBHOOK_URL', default: '/paystack/webhook'),
 ];

@@ -15,12 +15,12 @@ class PaystackServiceProvider extends ServiceProvider
     {
         // Publish configuration
         $this->publishes(paths: [
-            __DIR__.'/../config/paystack.php' => config_path(path: 'paystack.php'),
+            __DIR__ . '/../config/paystack.php' => config_path(path: 'paystack.php'),
         ], groups: 'paystack');
 
         // Merge configuration
         $this->mergeConfigFrom(
-            path: __DIR__.'/../config/paystack.php',
+            path: __DIR__ . '/../config/paystack.php',
             key: 'paystack'
         );
     }
@@ -30,9 +30,14 @@ class PaystackServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Register the main class to use with the facade
-        //        $this->app->singleton(abstract: 'paystack', concrete: function (): \NjoguAmos\Paystack\Paystack {
-        //            return new Paystack();
-        //        });
+        $this->app->bind(
+            abstract: PaystackConnector::class,
+            concrete: function (): PaystackConnector {
+                return new PaystackConnector(
+                    baseUrl: config()->string(key: 'paystack.base_url'),
+                    secretKey: config(key: 'paystack.secret_key')
+                );
+            }
+        );
     }
 }

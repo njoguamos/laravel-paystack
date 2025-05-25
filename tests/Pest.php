@@ -13,7 +13,11 @@ declare(strict_types=1);
 |
 */
 
-uses(NjoguAmos\Paystack\Tests\TestCase::class)->in('Feature');
+uses(
+    \NjoguAmos\Paystack\Tests\TestCase::class,
+    \Illuminate\Foundation\Testing\LazilyRefreshDatabase::class
+)
+    ->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
