@@ -28,7 +28,10 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "NjoguAmos\\Paystack\\Tests\\": "tests/"
+            "NjoguAmos\\Paystack\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "extra": {
@@ -45,8 +48,24 @@
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
-        "analyse" : "./vendor/bin/phpstan analyse --memory-limit=2G",
-        "rector": "./vendor/bin/rector process --ansi"
+        "analyse": "./vendor/bin/phpstan analyse --memory-limit=2G",
+        "rector": "./vendor/bin/rector process --ansi",
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ]
     },
     "config": {
         "sort-packages": true,

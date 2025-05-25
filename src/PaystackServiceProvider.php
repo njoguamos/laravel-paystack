@@ -31,8 +31,8 @@ class PaystackServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Register the main class to use with the facade
-        $this->app->singleton(abstract: 'paystack', concrete: function (): \NjoguAmos\Paystack\Paystack {
-            return new Paystack();
-        });
+        //        $this->app->singleton(abstract: 'paystack', concrete: function (): \NjoguAmos\Paystack\Paystack {
+        //            return new Paystack();
+        //        });
     }
 }
