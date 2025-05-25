@@ -24,6 +24,9 @@ features:
   - icon: 🧑🏾‍💻
     title: Developer Experience
     details: Access fast setup, stadardized Data Transfer Objects and error handling.
+  - icon: 🧭
+    title: Docs & Test
+    details: The package is well documented and tested with core edge case well covered.
 ---
 
 

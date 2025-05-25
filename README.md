@@ -32,7 +32,7 @@ PAYSTACK_SECRET_KEY=your-secret-key
 
 ## Usage
 
-You can find the documentation at [Documentation Site](https://njoguamos.me.ke/laravel-paystack)
+You can find the documentation at [Documentation Site](https://paystack.njoguamos.me.ke)
 
 ## Testing
 
