@@ -49,8 +49,8 @@ The request parameter must be an instance of `\NjoguAmos\Paystack\Data\Transacti
 |--------------------|----------|----------|---------------------------------------------------------------------------------------------------------------|
 | amount             | int      | Yes      | Amount in the smallest currency unit                                                                          |
 | email              | string   | Yes      | Customer's email address                                                                                      |
+| reference          | int      | Yes      | Unique transaction reference. e.g Your transactions table primary key.                                        |
 | currency           | Currency | No       | Transaction currency (defaults to your integration currency). Instance of `NjoguAmos\Paystack\Enums\Currency` |
-| reference          | string   | No       | Unique transaction reference. Only `-`, `.`, `=` and alphanumeric characters allowed                          |
 | callback_url       | string   | No       | URL to redirect to after payment. Overrides the callback URL set in your dashboard.                           |
 | plan               | string   | No       | If transaction is for a subscription, provide the plan code here (invalidates the amount parameter)           |
 | invoice_limit      | int      | No       | Number of times to charge customer during subscription to plan                                                |
@@ -89,8 +89,8 @@ use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
 $data = new InitializeRequestData(
     amount: 50000,
     email: 'customer@example.com',
+    reference: 5764789325239,
     currency: Currency::KES,
-    reference: '01JW57R5A4B9BHFEHKAT7S87MF',
     callback_url: 'https://example.com/callback',
     channels: [Channel::MOBILE_MONEY, Channel::BANK],
     subaccount: 'acc_122',
