@@ -4,13 +4,14 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
     title: "Laravel Paystack",
     description: "A Laravel package for Paystack payment integration",
-    themeConfig: {
-        head: [
-            [
-                'script',
-                { defer: '', 'data-domain': 'paystack.njoguamos.me.ke', src: 'https://st.artisanelevated.com/js/script.tagged-events.js' }
-            ],
+    head: [
+        [
+            'script',
+            { defer: '', 'data-domain': 'paystack.njoguamos.me.ke', src: 'https://st.artisanelevated.com/js/script.tagged-events.js' }
         ],
+    ],
+    themeConfig: {
+
         nav: [
             {text: 'Home', link: '/'},
             {text: 'Guide', link: '/introduction/getting-started'},
