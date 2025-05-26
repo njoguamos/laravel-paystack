@@ -1,5 +1,9 @@
 # Laravel Paystack
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/njoguamos/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/njoguamos/laravel-paystack)
+![GitHub Actions Test Status](https://img.shields.io/github/actions/workflow/status/njoguamos/laravel-paystack/tests.yml?logo=github&label=Tests)
+[![Total Downloads](https://img.shields.io/packagist/dt/njoguamos/laravel-paystack.svg?style=flat-square)](https://packagist.org/packages/NjoguAmos/laravel-paystack)
+
 > [!WARNING]
 > This package is still in development and it is not ready for production.
 
