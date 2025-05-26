@@ -10,7 +10,7 @@ A Laravel package for integrating with Paystack payment gateway.
 You can install the package via composer:
 
 ```bash
-composer require njoguamos/paystack
+composer require njoguamos/laravel-paystack
 ```
 
 ## Configuration
@@ -25,9 +25,9 @@ This will publish a `paystack.php` configuration file to your config directory.
 
 Add your Paystack API keys to your `.env` file:
 
-```
-PAYSTACK_PUBLIC_KEY=your-public-key
-PAYSTACK_SECRET_KEY=your-secret-key
+```dotenv
+#PAYSTACK_PUBLIC_KEY=
+PAYSTACK_SECRET_KEY=
 ```
 
 ## Usage

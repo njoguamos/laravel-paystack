@@ -1,5 +1,5 @@
 {
-    "name": "njoguamos/paystack",
+    "name": "njoguamos/laravel-paystack",
     "description": "A Laravel package for Paystack payment integration",
     "type": "library",
     "license": "MIT",
