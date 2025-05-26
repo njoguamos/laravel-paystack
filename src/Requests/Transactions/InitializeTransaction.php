@@ -10,8 +10,8 @@ use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Traits\Body\HasJsonBody;
-use NjoguAmos\Paystack\Data\Transactions\TransactionInitRequestData;
-use NjoguAmos\Paystack\Data\Transactions\TransactionInitResponseData;
+use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
+use NjoguAmos\Paystack\Data\Transactions\InitializeResponseData;
 
 class InitializeTransaction extends Request implements HasBody
 {
@@ -19,7 +19,7 @@ class InitializeTransaction extends Request implements HasBody
 
     protected Method $method = Method::POST;
 
-    public function __construct(public TransactionInitRequestData $data)
+    public function __construct(public InitializeRequestData $data)
     {
     }
 
@@ -41,7 +41,7 @@ class InitializeTransaction extends Request implements HasBody
     {
         $data = $response->json()['data'];
 
-        return new TransactionInitResponseData(
+        return new InitializeResponseData(
             authorization_url: $data['authorization_url'],
             access_code: $data['access_code'],
             reference: $data['reference'],

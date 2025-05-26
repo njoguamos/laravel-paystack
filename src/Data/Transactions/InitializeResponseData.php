@@ -6,7 +6,7 @@ namespace NjoguAmos\Paystack\Data\Transactions;
 
 use NjoguAmos\Paystack\Data\BaseData;
 
-class TransactionInitResponseData extends BaseData
+class InitializeResponseData extends BaseData
 {
     public function __construct(
         public string $authorization_url,

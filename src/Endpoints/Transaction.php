@@ -6,8 +6,8 @@ namespace NjoguAmos\Paystack\Endpoints;
 
 use NjoguAmos\Paystack\PaystackConnector;
 use NjoguAmos\Paystack\Requests\Transactions\InitializeTransaction;
-use NjoguAmos\Paystack\Data\Transactions\TransactionInitRequestData;
-use NjoguAmos\Paystack\Data\Transactions\TransactionInitResponseData;
+use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
+use NjoguAmos\Paystack\Data\Transactions\InitializeResponseData;
 
 class Transaction
 {
@@ -23,7 +23,7 @@ class Transaction
      *
      * @throws \Saloon\Exceptions\SaloonException
      */
-    public function Initialize(TransactionInitRequestData $data): TransactionInitResponseData
+    public function Initialize(InitializeRequestData $data): InitializeResponseData
     {
         $response = $this->connector->send(
             request: new InitializeTransaction(data: $data)

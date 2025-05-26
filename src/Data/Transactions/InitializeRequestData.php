@@ -33,7 +33,7 @@ use NjoguAmos\Paystack\Enums\Currency;
  *
  *
  */
-class TransactionInitRequestData extends BaseData
+class InitializeRequestData extends BaseData
 {
     /**
      * @param int $amount
