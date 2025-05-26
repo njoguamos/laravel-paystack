@@ -48,7 +48,7 @@ try {
     $data = new InitializeRequestData(
         amount: 1000, 
         email: 'customer@example.com', 
-        reference: 'duplicate-reference'
+        reference: 672358392765235
         );
         
     $response = Transaction::initialize(data: $data);

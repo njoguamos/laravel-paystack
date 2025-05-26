@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace NjoguAmos\Paystack\Endpoints;
 
 use NjoguAmos\Paystack\PaystackConnector;
-use NjoguAmos\Paystack\Requests\Transactions\InitializeTransaction;
 use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
+use NjoguAmos\Paystack\Requests\Transactions\VerifyTransaction;
 use NjoguAmos\Paystack\Data\Transactions\InitializeResponseData;
+use NjoguAmos\Paystack\Data\Transactions\TransactionResponseData;
+use NjoguAmos\Paystack\Requests\Transactions\InitializeTransaction;
 
 class Transaction
 {
@@ -27,6 +29,20 @@ class Transaction
     {
         $response = $this->connector->send(
             request: new InitializeTransaction(data: $data)
+        );
+
+        return $response->dtoOrFail();
+    }
+
+    /**
+     * Confirm the status of a transaction.
+     *
+     * @throws \Saloon\Exceptions\SaloonException
+     */
+    public function verify(int|string $reference): TransactionResponseData
+    {
+        $response = $this->connector->send(
+            request: new VerifyTransaction(reference: $reference)
         );
 
         return $response->dtoOrFail();
