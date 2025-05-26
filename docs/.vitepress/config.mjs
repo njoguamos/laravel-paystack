@@ -4,6 +4,7 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
     title: "Laravel Paystack",
     description: "A Laravel package for Paystack payment integration",
+    lastUpdated: true,
     head: [
         [
             'script',
@@ -13,10 +14,6 @@ export default defineConfig({
     themeConfig: {
         search: {
             provider: 'local'
-        },
-
-        outline: {
-            level: 2
         },
 
         nav: [
