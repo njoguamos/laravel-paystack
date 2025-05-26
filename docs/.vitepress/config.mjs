@@ -13,7 +13,7 @@ export default defineConfig({
         ],
         nav: [
             {text: 'Home', link: '/'},
-            {text: 'Guide', link: '/introduction/getting-started'}
+            {text: 'Guide', link: '/introduction/getting-started'},
         ],
 
         sidebar: [
@@ -22,6 +22,7 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     {text: 'Getting Started', link: '/introduction/getting-started'},
+                    {text: 'Progress', link: '/introduction/progress'}
                 ]
             },
             {
