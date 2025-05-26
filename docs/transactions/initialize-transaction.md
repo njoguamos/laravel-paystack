@@ -1,24 +1,40 @@
 # Initialize Transaction
 
-Initialize a transaction from your backend to collect payment from your customers. The goal is to get an authorization url that you can redirect your customers to.
+For customers to pay for a product or a service on you application, they need a payment page. Paystack allows you to generate such page (called authorization url) thought he api.  An authorization url allows customers to securely enter their payment details and complete a transaction.
 
-## Example Usage
+## Making a Request
+
+To generate the URL in you Laravel code, create an instance of `InitializeRequestData` and pass to `Transaction::initialize`, 
 
 ```php
 use NjoguAmos\Paystack\Facades\Transaction;
 use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
 
-// Create request data with required parameters
 $data = new InitializeRequestData(
     amount: 10000,
     email: 'customer@example.com'
 );
 
-// Initialize the transaction
 $transaction = Transaction::initialize(data: $data);
 
-// Get the authorization URL to redirect the customer to
 $authorizationUrl = $response->authorization_url;
+# e.g. https://checkout.paystack.com/3ni8kdavz62431k
+```
+
+## Handling the Response
+
+After payment completion, Paystack will redirect to your callback URL or the default URL set in your dashboard.
+
+```php
+// Redirect the user to the payment page
+return redirect($response->authorization_url);
+
+// Or if you're using an API
+return response()->json([
+    'authorization_url' => $response->authorization_url,
+    'access_code' => $response->access_code,
+    'reference' => $response->reference,
+]);
 ```
 
 ## Request Parameters
@@ -41,6 +57,16 @@ The request parameter must be an instance of `\NjoguAmos\Paystack\Data\Transacti
 | transaction_charge | int      | No       | Amount to override the split configuration for a single split payment                                         |
 | bearer             | Bearer   | No       | Who bears the transaction charges. An instance of `\NjoguAmos\Paystack\Enums\Bearer`                          |
 
+
+## Response
+
+The a successful response is an instance of `\NjoguAmos\Paystack\Data\Transactions\InitializeResponseData` and contains the following properties:
+
+| Property          | Type   | Description                                 |
+|-------------------|--------|---------------------------------------------|
+| authorization_url | string | URL to redirect the customer to for payment |
+| access_code       | string | Access code for the transaction             |
+| reference         | string | Transaction reference                       |
 
 ## Advanced Example
 
@@ -67,29 +93,3 @@ $data = new InitializeRequestData(
 
 $transaction = Transaction::initialize(data: $data);
 ```
-
-## Response
-
-The a successful response is an instance of `\NjoguAmos\Paystack\Data\Transactions\InitializeResponseData` and contains the following properties:
-
-| Property          | Type   | Description                                 |
-|-------------------|--------|---------------------------------------------|
-| authorization_url | string | URL to redirect the customer to for payment |
-| access_code       | string | Access code for the transaction             |
-| reference         | string | Transaction reference                       |
-
-## Handling the Response
-
-```php
-// Redirect the user to the payment page
-return redirect($response->authorization_url);
-
-// Or if you're using an API
-return response()->json([
-    'authorization_url' => $response->authorization_url,
-    'access_code' => $response->access_code,
-    'reference' => $response->reference,
-]);
-```
-
-After payment completion, Paystack will redirect to your callback URL or the default URL set in your dashboard. You can then verify the transaction using the reference.

@@ -11,6 +11,13 @@ export default defineConfig({
         ],
     ],
     themeConfig: {
+        search: {
+            provider: 'local'
+        },
+
+        outline: {
+            level: 2
+        },
 
         nav: [
             {text: 'Home', link: '/'},
