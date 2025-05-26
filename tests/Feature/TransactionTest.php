@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use NjoguAmos\Paystack\Endpoints\Transaction;
+use NjoguAmos\Paystack\Facades\Transaction;
 use NjoguAmos\Paystack\Requests\Transactions\InitializeTransaction;
 use NjoguAmos\Paystack\Data\Transactions\TransactionInitRequestData;
 use NjoguAmos\Paystack\Data\Transactions\TransactionInitResponseData;
@@ -24,8 +24,7 @@ test(description: 'can initialise a transaction', closure: function () {
     MockClient::global(mockData: [InitializeTransaction::class => MockResponse::make(body: $body) ]);
 
     $data = new TransactionInitRequestData(amount: 1000, email: 'customer@example.com');
-    $transaction = new Transaction();
-    $response = $transaction->initialize(data: $data);
+    $response = Transaction::initialize(data: $data);
 
     expect(value: $response)
         ->toBeInstanceOf(class: TransactionInitResponseData::class)

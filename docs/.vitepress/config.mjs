@@ -5,7 +5,12 @@ export default defineConfig({
     title: "Laravel Paystack",
     description: "A Laravel package for Paystack payment integration",
     themeConfig: {
-        // https://vitepress.dev/reference/default-theme-config
+        head: [
+            [
+                'script',
+                { defer: '', 'data-domain': 'paystack.njoguamos.me.ke', src: 'https://st.artisanelevated.com/js/script.tagged-events.js' }
+            ],
+        ],
         nav: [
             {text: 'Home', link: '/'},
             {text: 'Guide', link: '/introduction/getting-started'}
@@ -23,7 +28,7 @@ export default defineConfig({
                 text: 'Transactions',
                 collapsed: true,
                 items: [
-                    {text: 'Initialize Transaction ⚠︎', link: '/transactions/initialize-transaction'},
+                    {text: 'Initialize Transaction', link: '/transactions/initialize-transaction'},
                     {text: 'Verify Transaction ⚠︎', link: '/transactions/verify-transaction'},
                     {text: 'List Transactions ⚠︎', link: '/transactions/list-transactions'},
                     {text: 'Fetch Transaction ⚠︎', link: '/transactions/fetch-transaction'},
