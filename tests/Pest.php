@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use Saloon\Config;
+use Saloon\Http\Faking\MockClient;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -13,11 +16,18 @@ declare(strict_types=1);
 |
 */
 
+Config::preventStrayRequests();
+
+
 uses(
     \NjoguAmos\Paystack\Tests\TestCase::class,
     \Illuminate\Foundation\Testing\LazilyRefreshDatabase::class
 )
     ->in('Feature');
+
+uses()
+    ->beforeEach(fn () => MockClient::destroyGlobal())
+    ->in(__DIR__);
 
 /*
 |--------------------------------------------------------------------------

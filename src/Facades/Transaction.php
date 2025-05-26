@@ -7,9 +7,9 @@ namespace NjoguAmos\Paystack\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \NjoguAmos\Paystack\Paystack
+ * @see \NjoguAmos\Paystack\Endpoints\Transaction
  */
-class Paystack extends Facade
+class Transaction extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -18,6 +18,6 @@ class Paystack extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'paystack';
+        return 'transaction';
     }
 }

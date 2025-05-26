@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace NjoguAmos\Paystack;
 
+use Saloon\Http\Response;
 use Saloon\Http\Connector;
 use Saloon\Http\Auth\TokenAuthenticator;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class PaystackConnector extends Connector
 {
+    use AlwaysThrowOnErrors;
+
     /**
      * Create a new Paystack connector instance.
      *
@@ -31,6 +35,17 @@ class PaystackConnector extends Connector
     public function resolveBaseUrl(): string
     {
         return $this->baseUrl;
+    }
+
+    /**
+     * Determines if the request has failed based on the response body.
+     *
+     * @param Response $response
+     * @return bool|null
+     */
+    public function hasRequestFailed(Response $response): ?bool
+    {
+        return str_contains($response->body(), '"status":false');
     }
 
     /**
