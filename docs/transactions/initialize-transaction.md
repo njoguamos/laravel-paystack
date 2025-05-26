@@ -1,3 +1,4 @@
-# Getting Started
+# Initialize Transaction
 
-> This part of the documentation is still work in progress. Check later or submit a [PR](https://github.com/njoguamos/laravel-paystack)
+Initialize a transaction from your backend.
+
