@@ -30,7 +30,8 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                     {text: 'Getting Started', link: '/introduction/getting-started'},
-                    {text: 'Progress', link: '/introduction/progress'}
+                    {text: 'Progress', link: '/introduction/progress'},
+                    {text: 'Handling Failures', link: '/introduction/handling-failures'}
                 ]
             },
             {
