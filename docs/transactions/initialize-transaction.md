@@ -1,6 +1,6 @@
 # Initialize Transaction
 
-For customers to pay for a product or a service on you application, they need a payment page. Paystack allows you to generate such page (called authorization url) thought he api.  An authorization url allows customers to securely enter their payment details and complete a transaction.
+For customers to pay for a product or a service on you application, they need a payment page. Paystack allows you to generate such page (called authorization url) thought the api.  An authorization url allows customers to securely enter their payment details and complete a transaction.
 
 ## Making a Request
 
@@ -15,7 +15,7 @@ $data = new InitializeRequestData(
     email: 'customer@example.com'
 );
 
-$transaction = Transaction::initialize(data: $data);
+$response = Transaction::initialize(data: $data);
 
 $authorizationUrl = $response->authorization_url;
 # e.g. https://checkout.paystack.com/3ni8kdavz62431k
@@ -57,8 +57,10 @@ The request parameter must be an instance of `\NjoguAmos\Paystack\Data\Transacti
 | transaction_charge | int      | No       | Amount to override the split configuration for a single split payment                                         |
 | bearer             | Bearer   | No       | Who bears the transaction charges. An instance of `\NjoguAmos\Paystack\Enums\Bearer`                          |
 
+> [!IMPORTANT]
+> The `reference` parameter can be used to [verify](/transactions/verify-transaction) a transaction later.
 
-## Response
+## Response Parameters
 
 The a successful response is an instance of `\NjoguAmos\Paystack\Data\Transactions\InitializeResponseData` and contains the following properties:
 
