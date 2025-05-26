@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace NjoguAmos\Paystack\Enums;
 
-enum Channels: string
+enum Channel: string
 {
     case CARD = 'card';
     case BANK = 'bank';

@@ -42,7 +42,6 @@
                 "NjoguAmos\\Paystack\\PaystackServiceProvider"
             ],
             "aliases": {
-                "Paystack": "NjoguAmos\\Paystack\\Facades\\Paystack",
                 "Transaction": "NjoguAmos\\Paystack\\Facades\\Transaction"
             }
         }

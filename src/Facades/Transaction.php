@@ -18,6 +18,6 @@ class Transaction extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'transaction';
+        return \NjoguAmos\Paystack\Endpoints\Transaction::class;
     }
 }
