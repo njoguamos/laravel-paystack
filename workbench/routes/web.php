@@ -3,20 +3,21 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
-use NjoguAmos\Paystack\Facades\Transaction;
-use NjoguAmos\Paystack\Data\Transactions\InitializeRequestData;
 
 Route::view('/', 'welcome');
 
-Route::payment('/transactions/transactions/initialize-transaction',function (){
-
-
-    $data = new InitializeRequestData(
-        amount: 10000,
-        email: 'customer@example.com'
+Route::get('/transactions/initialize-transaction',function (){
+    $data = new \NjoguAmos\Paystack\Data\Transactions\InitializeRequestData(
+        amount: 100,
+        email: fake()->email(),
+        currency: \NjoguAmos\Paystack\Enums\Currency::KES,
+        reference: \Illuminate\Support\Str::ulid()->toString(),
+        callback_url: '/'
     );
 
-    $transaction = Transaction::initialize(data: $data);
+    $response = \NjoguAmos\Paystack\Facades\Transaction::initialize(data: $data);
 
     $authorizationUrl = $response->authorization_url;
+
+    return redirect()->away($authorizationUrl);
 });

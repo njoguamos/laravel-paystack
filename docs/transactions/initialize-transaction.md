@@ -26,8 +26,8 @@ $authorizationUrl = $response->authorization_url;
 After payment completion, Paystack will redirect to your callback URL or the default URL set in your dashboard.
 
 ```php
-// Redirect the user to the payment page
-return redirect($response->authorization_url);
+// Redirect the user to the payment page or render on an iframe
+return redirect()->away($response->authorization_url);
 
 // Or if you're using an API
 return response()->json([
@@ -36,6 +36,10 @@ return response()->json([
     'reference' => $response->reference,
 ]);
 ```
+
+The `authorization_url` should render a payment page similar to this:
+
+![Paystack Payment page](./paystack-payment-page.png)
 
 ## Request Parameters
 
