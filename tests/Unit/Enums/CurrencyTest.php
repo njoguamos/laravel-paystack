@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use NjoguAmos\Paystack\Enums\Currency;
 
-it(description: 'has the correct cases', closure: function () {
+it(description: 'has the correct cases', closure: function (): void {
     expect(value: Currency::cases())->toHaveCount(count: 5)
         ->and(value: Currency::NGN->value)->toBe(expected: 'NGN')
         ->and(value: Currency::USD->value)->toBe(expected: 'USD')
@@ -13,7 +13,7 @@ it(description: 'has the correct cases', closure: function () {
         ->and(value: Currency::KES->value)->toBe(expected: 'KES');
 });
 
-it(description: 'returns the correct base unit', closure: function () {
+it(description: 'returns the correct base unit', closure: function (): void {
     expect(value: Currency::NGN->baseUnit())->toBe(expected: 'Kobo')
         ->and(value: Currency::USD->baseUnit())->toBe(expected: 'Cent')
         ->and(value: Currency::GHS->baseUnit())->toBe(expected: 'Pesewa')
@@ -21,7 +21,7 @@ it(description: 'returns the correct base unit', closure: function () {
         ->and(value: Currency::KES->baseUnit())->toBe(expected: 'Cent');
 });
 
-it(description: 'returns the correct description', closure: function () {
+it(description: 'returns the correct description', closure: function (): void {
     expect(value: Currency::NGN->description())->toBe(expected: 'Nigerian Naira')
         ->and(value: Currency::USD->description())->toBe(expected: 'US Dollar')
         ->and(value: Currency::GHS->description())->toBe(expected: 'Ghanaian Cedi')
@@ -29,7 +29,7 @@ it(description: 'returns the correct description', closure: function () {
         ->and(value: Currency::KES->description())->toBe(expected: 'Kenyan Shilling');
 });
 
-it(description: 'returns the correct minimum transaction amount', closure: function () {
+it(description: 'returns the correct minimum transaction amount', closure: function (): void {
     expect(value: Currency::NGN->minimumTransaction())->toBe(expected: '₦ 50.00')
         ->and(value: Currency::USD->minimumTransaction())->toBe(expected: '$ 2.00')
         ->and(value: Currency::GHS->minimumTransaction())->toBe(expected: '₵ 0.10')
@@ -37,7 +37,7 @@ it(description: 'returns the correct minimum transaction amount', closure: funct
         ->and(value: Currency::KES->minimumTransaction())->toBe(expected: 'Ksh. 1.00');
 });
 
-it(description: 'returns the correct currency symbol', closure: function () {
+it(description: 'returns the correct currency symbol', closure: function (): void {
     expect(value: Currency::NGN->symbol())->toBe(expected: '₦')
         ->and(value: Currency::USD->symbol())->toBe(expected: '$')
         ->and(value: Currency::GHS->symbol())->toBe(expected: '₵')

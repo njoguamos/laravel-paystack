@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Saloon\Http\Auth\TokenAuthenticator;
 use NjoguAmos\Paystack\PaystackConnector;
 
-beforeEach(closure: function () {
+beforeEach(closure: function (): void {
     $this->baseUrl = 'https://api.paystack.co';
     $this->secretKey = 'pk_test_7d3c95e72a18b4f56082139d74c6b30fa92e8f7c'; // A fake key 😊
 
@@ -15,12 +15,12 @@ beforeEach(closure: function () {
     );
 });
 
-it(description: 'resolves the correct base url', closure: function () {
+it(description: 'resolves the correct base url', closure: function (): void {
     expect(value: $this->connector->resolveBaseUrl())
         ->toBe(expected: $this->baseUrl);
 });
 
-it(description: 'set the secret key in the authorization header', closure: function () {
+it(description: 'set the secret key in the authorization header', closure: function (): void {
     $authenticator = $this->connector->getAuthenticator();
 
     expect(value: $authenticator)
@@ -30,7 +30,7 @@ it(description: 'set the secret key in the authorization header', closure: funct
         ->prefix->toBe(expected: 'Bearer');
 });
 
-it(description: 'sets the correct default headers', closure: function () {
+it(description: 'sets the correct default headers', closure: function (): void {
     expect(value: $this->connector->headers()->all())
         ->toBeArray()
         ->toHaveKey(key: 'Content-Type', value: 'application/json')

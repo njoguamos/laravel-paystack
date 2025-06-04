@@ -17,7 +17,7 @@ class BaseData extends Data
     public function filled(): array
     {
         return collect($this->all())
-            ->filter(fn ($value) => $value !== null)
+            ->filter(fn ($value): bool => $value !== null)
             ->map(fn ($value) => $value instanceof BackedEnum ? $value->value : $value)
             ->all();
     }

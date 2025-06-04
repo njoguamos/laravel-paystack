@@ -16,8 +16,6 @@ class PaystackConnector extends Connector
     /**
      * Create a new Paystack connector instance.
      *
-     * @param string $baseUrl
-     * @param string $secretKey
      *
      * @return void
      */
@@ -39,9 +37,6 @@ class PaystackConnector extends Connector
 
     /**
      * Determines if the request has failed based on the response body.
-     *
-     * @param Response $response
-     * @return bool|null
      */
     public function hasRequestFailed(Response $response): ?bool
     {
@@ -50,8 +45,6 @@ class PaystackConnector extends Connector
 
     /**
      * Provides the default authentication mechanism.
-     *
-     * @return TokenAuthenticator
      */
     protected function defaultAuth(): TokenAuthenticator
     {

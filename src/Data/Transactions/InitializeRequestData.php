@@ -13,21 +13,6 @@ use NjoguAmos\Paystack\Enums\Currency;
  */
 class InitializeRequestData extends BaseData
 {
-    /**
-     * @param int $amount
-     * @param string $email
-     * @param Currency|null $currency
-     * @param int|string $reference
-     * @param string|null $callback_url
-     * @param string|null $plan
-     * @param int|null $invoice_limit
-     * @param string|null $metadata
-     * @param array<int,string>|null $channels
-     * @param string|null $split_code
-     * @param string|null $subaccount
-     * @param int|null $transaction_charge
-     * @param Bearer|null $bearer
-     */
     public function __construct(
         public int $amount,
         public string $email,
@@ -37,6 +22,7 @@ class InitializeRequestData extends BaseData
         public ?string $plan = null,
         public ?int $invoice_limit = null,
         public ?string $metadata = null,
+        /** @var array<int,string>|null */
         public ?array  $channels = null,
         public ?string $split_code = null,
         public ?string $subaccount = null,

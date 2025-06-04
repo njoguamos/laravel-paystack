@@ -25,8 +25,6 @@ class InitializeTransaction extends Request implements HasBody
 
     /**
      * Resolves and returns the API endpoint for initializing a transaction.
-     *
-     * @return string
      */
     public function resolveEndpoint(): string
     {

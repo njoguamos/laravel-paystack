@@ -26,5 +26,5 @@ Route::get('/transactions/initialize-transaction', function () {
 Route::get('/transactions/verify/{reference}', function (int|string $reference) {
     $response = \NjoguAmos\Paystack\Facades\Transaction::verify(reference: $reference);
 
-    return $response;
+    return response()->json($response);
 });
