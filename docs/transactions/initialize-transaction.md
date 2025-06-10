@@ -55,7 +55,7 @@ The request parameter must be an instance of `\NjoguAmos\Paystack\Data\Transacti
 | plan               | string   | No       | If transaction is for a subscription, provide the plan code here (invalidates the amount parameter)           |
 | invoice_limit      | int      | No       | Number of times to charge customer during subscription to plan                                                |
 | metadata           | string   | No       | Stringified JSON object of custom data                                                                        |
-| channels           | array    | No       | Payment channels to make available. An array of `NjoguAmos\Paystack\Enums\Currency`                           |
+| channels           | array    | No       | Payment channels to make available. An array of `NjoguAmos\Paystack\Enums\Channel`                           |
 | split_code         | string   | No       | The split code for transaction split (e.g., `SPL_98WF13Eb3w`)                                                 |
 | subaccount         | string   | No       | The code for the subaccount that owns the payment (e.g., `ACCT_8f4s1eq7ml6rlzj`)                              |
 | transaction_charge | int      | No       | Amount to override the split configuration for a single split payment                                         |
