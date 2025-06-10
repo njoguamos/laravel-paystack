@@ -12,7 +12,7 @@ hero:
       link: /introduction/getting-started
     - theme: alt
       text: Source Code
-      link: https://github.com/njoguamos/laravel-pesapal
+      link: https://github.com/njoguamos/laravel-paystack
 
 features:
   - icon: 🚀
