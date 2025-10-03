@@ -35,7 +35,7 @@ class PaystackServiceProvider extends ServiceProvider
             concrete: function (): PaystackConnector {
                 return new PaystackConnector(
                     baseUrl: config()->string(key: 'paystack.base_url'),
-                    secretKey: config(key: 'paystack.secret_key')
+                    secretKey: config()->string(key: 'paystack.secret_key')
                 );
             }
         );
