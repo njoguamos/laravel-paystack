@@ -18,7 +18,6 @@ use Saloon\Http\Faking\MockClient;
 
 Config::preventStrayRequests();
 
-
 uses(
     \NjoguAmos\Paystack\Tests\TestCase::class,
     \Illuminate\Foundation\Testing\LazilyRefreshDatabase::class
