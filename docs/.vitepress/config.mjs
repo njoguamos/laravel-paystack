@@ -8,7 +8,7 @@ export default defineConfig({
     head: [
         [
             'script',
-            { defer: '', 'data-domain': 'paystack.njoguamos.me.ke', src: 'https://st.artisanelevated.com/js/script.js' }
+            { defer: '', 'data-domain': 'paystack.njoguamos.me.ke', src: 'https://stats.njoguamos.me.ke/js/script.js' }
         ],
     ],
     themeConfig: {
