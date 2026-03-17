@@ -15,6 +15,8 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     strategy:
       fail-fast: true
       matrix:
@@ -51,7 +53,7 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/pest --coverage --coverage-clover build/logs/clover.xml
+        run: vendor/bin/pest --coverage --coverage-clover build/logs/clover.xml --coverage-text=build/coverage.txt
 
       - name: Format coverage report
         if: matrix.php == '8.4' && matrix.laravel == '13.*' && matrix.stability == 'prefer-stable'
